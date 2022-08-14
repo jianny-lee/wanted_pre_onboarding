@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-3">
+    <table class="table">
+        <thead>
+        <tr class="thead-dark">
+            <th>번호</th>
+            <th>포지션</th>
+            <th>채용보상금</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if company_list %}
+        {% for company in company_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>
+                <a href="{% url 'wanted:detail' company.id %}">
+                    {{ company.position }}
+                </a>
+            </td>
+            <td>{{ company.money }}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">채용 공고가 없습니다.</td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+    <a href="{% url 'wanted:create' %}" class="btn btn-primary">
+        채용공고 등록하기
+    </a>
+</div>
+{% endblock %}

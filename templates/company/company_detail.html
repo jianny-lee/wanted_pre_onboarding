@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table">
+    <h3>회사id : {{ company.id }}</h3>
+    <h3>채용포지션 : {{ company.position }}</h3>
+    <h3>채용보상금 : {{ company.money }}</h3>
+    <h3>채용 내용 : {{ company.detail }}</h3>
+    <h3>사용기술 : {{ company.skill }}</h3>
+</table>
+<div class="my-3">
+    <a href="{% url 'wanted:edit' company.id %}" class="btn btn-sm btn-outline-secondary">수정하기</a>
+    <a href="{% url 'wanted:delete' company.id %}" class="btn btn-sm btn-outline-secondary">삭제하기</a>
+</div>
+
+</body>
+
+</html>
